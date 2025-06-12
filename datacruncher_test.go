@@ -5,26 +5,26 @@ import (
 	"testing"
 )
 
-type Bruh struct {
+type bruh struct {
 	ID int8
 	Name string
-	Children map[int]Bruh
+	Children map[int]bruh
 };
 
 func TestDataCruncher(t *testing.T) {
-	data := Bruh{
+	data := bruh{
 		0,
 		"Adam",
-		map[int]Bruh{
-			12: Bruh{
+		map[int]bruh{
+			12: bruh{
 				12,
 				"Eve",
-				map[int]Bruh{},
+				map[int]bruh{},
 			},
-			76: Bruh{
+			76: bruh{
 				76,
 				"Cain",
-				map[int]Bruh{},
+				map[int]bruh{},
 			},
 		},
 	}
@@ -38,7 +38,7 @@ func TestDataCruncher(t *testing.T) {
 
 	fmt.Printf("serialised  : %q\n\n", serialised)
 
-	var deserialised Bruh
+	var deserialised bruh
 
 	e = Deserialise(serialised, &deserialised)
 	if e != nil {
